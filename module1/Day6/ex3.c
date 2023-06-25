@@ -1,14 +1,3 @@
-/*Assume User will be providing input in the form of a string as show below. 
-Write a function to parse the string and initialize an array of structures. 
-
-Example String : "1001 Aron 100.00" 
-Example Structure : 
-    struct Student{
-        int rollno;
-        char name[20];
-        float marks;
-    };
-    */
 #include<stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -49,15 +38,21 @@ void parse(const char* info,struct Student *students,int size)
          }
     }
 }
+void Display(struct Student *s1,int size)
+{
+    for(int i=0;i<size;i++)
+    {
+        printf("roll no  is %d \n",s1[i].rollno);
+        printf("name is %s \n",s1[i].name);
+        printf("marks is %f \n",s1[i].marks);
+    }
+}
 int main()
 {
-    int size;
+    int size=1;
     const char* info="1001 john 100.00";
     struct Student students[size];
     parse(info,students,size);
-    for (int i = 0; i < size; i++) {
-        printf("Roll No: %d\n", students[i].rollno);
-        printf("Name: %s\n", students[i].name);
-        printf("Marks: %.2f\n", students[i].marks);
-    }
+    Display(students,size);
+    
 }
